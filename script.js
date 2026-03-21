@@ -1,45 +1,47 @@
-// Smooth scroll
-function scrollToSection(id){
-    document.getElementById(id).scrollIntoView({
-        behavior: "smooth"
-    });
-}
+// Wait until full page loads
+window.addEventListener("DOMContentLoaded", function(){
 
-// Typing effect
-const text = "Yagneshwar Gangoni";
-let index = 0;
-
-function typeEffect(){
-    if(index < text.length){
-        document.getElementById("typing").innerHTML += text.charAt(index);
-        index++;
-        setTimeout(typeEffect, 80);
+    // Smooth scroll
+    function scrollToSection(id){
+        document.getElementById(id).scrollIntoView({
+            behavior:"smooth"
+        });
     }
-}
+    window.scrollToSection = scrollToSection;
 
-window.onload = typeEffect;
+    // Typing effect
+    const text = "Yagneshwar Gangoni";
+    let i = 0;
 
-// Form submit alert
-document.querySelector(".contact-form").addEventListener("submit", function(e){
-    e.preventDefault();
-    alert("Message sent successfully!");
-});
-
-// Navbar color change on scroll
-window.addEventListener("scroll", function(){
-    const nav = document.querySelector(".navbar");
-    nav.style.background = window.scrollY > 50 ? "#000" : "transparent";
-});
-
-// Reveal animation
-const cards = document.querySelectorAll(".project-card");
-
-window.addEventListener("scroll", () => {
-    cards.forEach(card => {
-        const pos = card.getBoundingClientRect().top;
-        if(pos < window.innerHeight){
-            card.style.opacity = "1";
-            card.style.transform = "translateY(0)";
+    function type(){
+        if(i < text.length){
+            document.getElementById("typing").innerHTML += text.charAt(i);
+            i++;
+            setTimeout(type, 80);
         }
-    });
+    }
+    type();
+
+    // ✅ Initialize EmailJS
+    emailjs.init("r2FDOqYcGdp1lHQVd");  
+
+    // ✅ Form submit
+    const form = document.getElementById("contact-form");
+
+    if(form){  // safety check
+        form.addEventListener("submit", function(e){
+            e.preventDefault();
+
+            emailjs.sendForm("service_inxk95r", "template_xbcpmqw", this)
+            .then(function(){
+                alert("✅ Message sent successfully!");
+                form.reset();
+            })
+            .catch(function(error){
+                alert("❌ Failed to send message");
+                console.log("ERROR:", error);
+            });
+        });
+    }
+
 });

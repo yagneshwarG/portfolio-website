@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yagneshwar | Portfolio</title>
+
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 </head>
 
 <body>
@@ -12,11 +14,15 @@
 <!-- NAVBAR -->
 <header class="navbar">
     <h2 class="logo">YG</h2>
-    <nav id="nav-links">
+    <nav>
         <a href="#home">Home</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
+
+        <a href="https://github.com/yagneshwarG" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/yagneshwar-gangoni" target="_blank">LinkedIn</a>
+        <a href="https://leetcode.com/u/GH2023003972/" target="_blank">LeetCode</a>
     </nav>
 </header>
 
@@ -24,19 +30,22 @@
 <section id="home" class="hero">
     <img src="my.photo.webp" class="profile-img">
 
-    <h1 class="title">Hi, I'm <span id="typing"></span></h1>
+    <h1>Hi, I'm <span id="typing"></span></h1>
 
     <p class="subtitle">
-        Frontend Developer | Python | DSA <br>
-        Building real-world web apps 🚀
+        Frontend Developer | Python | DSA  
+        <br>Building real-world web apps 🚀
     </p>
 
-    <button class="btn" onclick="scrollToSection('projects')">View Projects</button>
+    <div class="hero-buttons">
+        <button class="btn" onclick="scrollToSection('projects')">View Projects</button>
+        <a href="Yagneshwar_Resume.pdf" target="_blank" class="btn outline">Resume</a>
+    </div>
 </section>
 
 <!-- SKILLS -->
 <section id="skills" class="section">
-    <h1 class="section-title">Skills</h1>
+    <h2 class="section-title">Skills</h2>
 
     <div class="skills-box">
         <div class="skill-card">Python</div>
@@ -49,43 +58,59 @@
 
 <!-- PROJECTS -->
 <section id="projects" class="section">
-    <h1 class="section-title">Projects</h1>
+    <h2 class="section-title">Projects</h2>
 
     <div class="project-container">
+
         <div class="project-card">
             <h3>Smart Task Manager</h3>
-            <p>Task app with LocalStorage and filters</p>
+            <p>Task app with LocalStorage, filters, and responsive UI.</p>
+
+            <div class="project-links">
+                <a href="https://smart-task-manager-f6rxzyelw-yagneshwargs-projects.vercel.app/" target="_blank">Live</a>
+                <a href="https://github.com/yagneshwarG" target="_blank">Code</a>
+            </div>
         </div>
 
         <div class="project-card">
             <h3>Portfolio Website</h3>
-            <p>Modern responsive portfolio</p>
+            <p>Modern responsive portfolio showcasing projects and skills.</p>
+
+            <div class="project-links">
+                <a href="https://github.com/yagneshwarG" target="_blank">Code</a>
+            </div>
         </div>
 
-        <div class="project-card">
+        <div class="project-card highlight">
             <h3>Kethify</h3>
-            <p>Agri-tech startup concept</p>
+            <p>Agri-tech startup concept integrating AI with farming.</p>
+
+            <div class="project-links">
+                <a href="https://profound-banoffee-b79232.netlify.app/" target="_blank">Live</a>
+            </div>
         </div>
+
     </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="section">
-    <h1 class="section-title">Contact</h1>
+    <h2 class="section-title">Contact</h2>
 
-    <form class="contact-form">
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea placeholder="Your Message"></textarea>
+    <form class="contact-form" id="contact-form">
+        <input type="text" name="user_name" placeholder="Your Name" required>
+        <input type="email" name="user_email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
 
         <button class="btn submit-btn">Send Message</button>
     </form>
 </section>
 
 <footer class="footer">
-    © 2026 Yagneshwar | Built with ❤️
+    © 2026 Yagneshwar
 </footer>
 
 <script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 </body>
 </html>
